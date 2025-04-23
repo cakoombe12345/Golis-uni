@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funny Surprise</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      background-color: #fdd;
+      padding-top: 100px;
+    }
+    button {
+      font-size: 24px;
+      padding: 20px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Click Me for a Surprise!</h1>
+  <button onclick="startAnnoyance()">CLICK ME</button>
+
+  <audio id="funnySound" src="https://www.soundjay.com/human/sounds/fart-01.mp3" loop></audio>
+
+  <script>
+    function startAnnoyance() {
+      const audio = document.getElementById('funnySound');
+      audio.volume = 1.0; // Full volume
+      audio.play();
+
+      // Try to keep it playing
+      setInterval(() => {
+        if (audio.paused) {
+          audio.play();
+        }
+        audio.volume = 1.0; // Keep resetting to full
+      }, 500);
+
+      alert("Surprise! This isn't going away easily. Good luck.");
+    }
+  </script>
+</body>
+</html>
